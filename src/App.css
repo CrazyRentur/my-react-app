@@ -1,38 +1,1014 @@
-.App {
-  text-align: center;
+/*@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');*/
+:root {
+  --main-color: #2a39ac;     /* Синий */
+  --accent-color: #e74c3c;   /* Красный */
+  --bg-color: rgb(245, 245, 245); /* Светло-серый */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+body {
+  background-color: #252525;
+  color: #ffffff;
+  margin: 0;
+  font-family: sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+  all: unset;
+  padding: 0;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* --- НОВЫЙ БЛОК: Контейнер для фона --- */
+.hero-section {
+  position: relative; /* Удерживает абсолютную шапку внутри себя */
+  min-height: 100vh; /* Растягивает блок на всю высоту экрана */
+
+  /* Затемнение фона + сама картинка (замените путь на вашу картинку из зала) */
+  background: radial-gradient(
+      circle at left center, /* Центр градиента слева по вертикали */
+      rgba(0, 0, 0, 0.8) 50%,   /* Сильное затемнение в начале */
+      rgba(0, 0, 0, 0) 100%     /* Полное исчезновение затемнения */
+    ), 
+    url(./assets/images/backgroundHeader.jpg) center/cover no-repeat;
+  
   display: flex;
   flex-direction: column;
+  justify-content: center; /* Центрирует текст hero-content по вертикали */
+  align-items: center; /* Центрирует текст hero-content по горизонтали */
+}
+
+
+/* --- ИЗМЕНЕНО: Шапка поверх фона --- */
+.site-header {
+  position: absolute; /* Вырывает шапку из потока и накладывает на фон */
+  top: 0;
+  left: 0;
+  width: 100%; /* Растягиваем на всю ширину */
+  box-sizing: border-box; /* Чтобы padding не ломал ширину */
+  z-index: 10; /* Гарантирует, что шапка будет выше фона */
+  
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  padding: 20px 40px; /* Немного увеличили боковые отступы */
+  background-color: transparent; /* Убрали красный фон, теперь тут чистый фон картинки */
+  padding-left: 10ch;
+  padding-right: 10ch;
 }
 
-.App-link {
-  color: #61dafb;
+/* Контейнер для навигации */
+.nav-menu {
+  display: flex;
+  gap: 30px; /* Немного увеличим расстояние между пунктами */
+  color: #ffffff;
 }
 
-@keyframes App-logo-spin {
+/* Стили для самого текста внутри функции-компонента CreateH */
+.mainMenu p {
+  margin: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  position: relative; /* Нужно для абсолютного позиционирования линии под текстом */
+  padding: 6px 0;
+  color: #ffffff;
+  transition: color 0.5s ease; /* Плавная смена цвета текста */
+}
+
+/* Текст слегка подсвечивается синим при наведении */
+.mainMenu p:hover {
+  color: var(--main-color) !important;
+}
+
+/* Создаем невидимую линию под каждым пунктом меню */
+.mainMenu p::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* Толщина линии под подчеркиванием */
+  background-color: var(--main-color); /* Синий цвет из ваших переменных */
+  transform: scaleX(0); /* Изначально линия сжата до 0 (невидима) */
+  transform-origin: bottom right;
+  transition: transform 0.5s ease-out; /* Плавное выезжание */
+}
+
+.mainMenu p {
+  display: inline-block; /* ← добавь это */
+}
+
+.mainMenu p:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* При наведении линия плавно растягивается во всю ширину текста */
+.logo img {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+  /* animation: nav-menu-spin infinite 10s ease-in-out; */
+  /* Плавный переход для увеличения (0.3 секунды) */
+  transition: scale 0.2s ease-in-out; 
+}
+
+/* Эффект при наведении мыши */
+.logo img:hover {
+  scale: 1.1; /* Увеличивает логотип на 10%. Если нужно больше, поставь 1.15 или 1.2 */
+  cursor: pointer; /* Меняет курсор на указатель (палец) */
+}
+
+/* @keyframes nav-menu-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+} */
+
+
+.mainMenu p {
+  margin: 0;
+  padding: 10px;
+  cursor: pointer;
+  text-transform: uppercase; /* Делаем пункты меню заглавными буквами */
+  font-size: 14px;
+  font-weight:600;
+}
+
+
+/* Контейнер для иконок соцсетей */
+.social-icons {
+  display: flex;
+  gap: 30px; /* Расстояние между иконками */
+  align-items: center;
+}
+
+/* Стили для самих иконок-ссылок */
+.social-icons a {
+  color: #ffffff;
+  font-size: 35px; /* Размер иконок */
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+/* Эффект при наведении (подсветка основным синим цветом) */
+.social-icons a:hover {
+  color: var(--main-color);
+  transform: translateY(-2px); /* Легкий эффект подпрыгивания */
+}
+
+
+
+.line3 {
+  width: 30px;
+  height: 30px;
+}
+
+/* --- Стили для иконки бургера на десктопе (скрываем) --- */
+.burger-menu {
+  display: none;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   МОБИЛЬНАЯ ВЕРСИЯ (Экран меньше 1024px)
+   ========================================================================= */
+@media (max-width: 1024px) {
+  .site-header {
+    padding: 15px 20px; /* Убираем 10ch на мобилках, чтобы влез логотип */
+    position: relative; /* Чтобы выпадающее меню позиционировалось относительно шапки */
+  }
+
+  /* Показываем ваше троеточие/бургер */
+  .burger-menu {
+    display: block;
+    order: 3; /* Принудительно ставим в самый конец строки */
+  }
+
+  /* Соцсети сдвигаем правее к троеточию */
+  .social-icons {
+    margin-left: auto;
+    margin-right: 15px;
+    gap: 15px;
+  }
+  .social-icons a {
+    font-size: 26px;
+  }
+
+  /* Превращаем навигацию в компактный выпадающий список под шапкой */
+  .nav-menu {
+    position: absolute;
+    top: 100%; /* Выпадает строго под нижней границей хедера */
+    left: 0;
+    width: 100%;
+    background-color: #0d1117; /* Темный плотный фон для читаемости */
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-top: 1px solid #1f242c;
+    
+    /* Анимация скрытия/раскрытия через opacity и высоту */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in-out;
+  }
+
+  /* Класс, который React добавит при клике на троеточие */
+  .nav-menu.open {
+    max-height: 400px; /* Достаточная высота, чтобы поместились все пункты */
+    opacity: 1;
+  }
+
+  /* Стили для пунктов меню в мобильном списке */
+  .mainMenu {
+    width: 100%;
+  }
+
+  .mainMenu p {
+    padding: 15px 20px !important;
+    text-align: left;
+    border-bottom: 1px solid #1f242c;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Убираем десктопное подчеркивание линий на мобилках */
+  .mainMenu p::after {
+    display: none !important;
+  }
+}
+
+
+
+.arrow{
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
+}
+
+
+.subscription {
+  padding: 14px 28px !important; 
+  background-color: var(--main-color) !important;
+  border-radius: 8px !important;
+  box-shadow: none;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 14px !important; /* Сделали шрифт аккуратным */
+  font-weight: bold;
+  display: inline-flex !important;  
+  align-items: center !important;   
+  justify-content: center !important; 
+  gap: 12px !important;              
+  color: #ffffff !important;
+  transition: background-color 0.2s ease;
+}
+
+.subscription:hover {
+  background-color: #1a278a !important; /* Эффект наведения */
+}
+
+/* --- Стили для всей главной секции --- */
+.hero-section {
+  position: relative; 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Начинаем располагать контент сверху вниз */
+  align-items: flex-start;     /* ЖЕСТКО СЛЕВА: выравнивание всего контейнера */
+  padding-top: 5vh;
+  padding-left: 10ch;          /* Отступ слева для десктопа, соответствующий хэдеру */
+  padding-right: 20px;
+  box-sizing: border-box; 
+}
+
+/* Контентный блок */
+.hero-content {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;     /* ЖЕСТКО СЛЕВА: элементы внутри блока */
+  text-align: left;            /* ЖЕСТКО СЛЕВА: сам текст */
+}
+
+.hero-subtitle {
+  text-transform: uppercase;
+  color: #a0a0a0;
+  letter-spacing: 2px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle2 {
+  text-transform: uppercase;
+  color: #f1f1f1;
+  font-weight: 700;
+  line-height: 2;
+  letter-spacing: 2px;
+  font-size: 15px;
+  margin: 0px;
+}
+
+.hero-title {
+  font-size: 50px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  max-width: 700px;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.blue-text {
+  font-size: 130px;
+  color: var(--main-color);
+  display: block; 
+  line-height: 1;
+}
+
+/* --- Кнопки в один ряд на десктопе --- */
+.block-subscription {
+  display: flex !important;
+  flex-direction: row !important; 
+  gap: 20px !important; 
+  margin-top: 35px !important; 
+  width: auto !important; 
+}
+
+/* ВТОРАЯ КНОПКА (Прозрачная с рамкой) */
+.subscription2 {
+  padding: 14px 28px !important; 
+  background: transparent !important; 
+  border: 1px solid rgba(255, 255, 255, 0.4) !important; 
+  border-radius: 8px !important;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 14px !important;
+  font-weight: bold;
+  display: inline-flex !important;  
+  align-items: center !important;   
+  justify-content: center !important; 
+  gap: 12px !important;              
+  color: #ffffff !important;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.subscription2:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important; 
+  border-color: #ffffff !important;
+}
+
+/* Круглая обертка для эмодзи-сообщения (💬) */
+.btn-msg-icon {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 11px;
+}
+
+/* Корректируем размер стрелочки для первой кнопки */
+.arrow {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+/* ==========================================================================
+   АДАПТИВНОСТЬ ДЛЯ ГЛАВНОГО ЭКРАНА (Экран меньше 1024px)
+   ========================================================================= */
+@media (max-width: 1024px) {
+  .hero-section {
+    padding-top: 20px !important; /* Место под мобильный хэдер */
+    padding-left: 20px !important; /* Уменьшаем боковые отступы на мобилках */
+    padding-right: 20px !important;
+    align-items: flex-start !important; /* Оставляем прижатие секции К ЛЕВОМУ КРАЮ */
+  }
+
+  .hero-content {
+    padding-top: 30%;
+    align-items: flex-start !important; /* Оставляем элементы К ЛЕВОМУ КРАЮ */
+    text-align: left !important;         /* Оставляем текст К ЛЕВОМУ КРАЮ */
+  }
+
+  /* Уменьшаем шрифты пропорционально, чтобы не рвали мобильный экран */
+  .hero-title {
+    font-size: 32px !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Уменьшаем гигантское слово «СИЛЬНЕЕ» на смартфонах */
+  .blue-text {
+    font-size: 58px !important;
+    margin-top: 5px;
+  }
+
+  .hero-subtitle {
+    font-size: 12px !important;
+  }
+
+  .hero-subtitle2 {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Перестраиваем кнопки вертикально для удобства нажимания на смартфонах */
+  .block-subscription {
+    flex-direction: column !important; 
+    width: 100% !important;
+    max-width: 320px !important; 
+    gap: 12px !important;
+  }
+
+  /* Растягиваем кнопки в пределах их максимальной ширины */
+  .subscription,
+  .subscription2 {
+    width: 100% !important;
+    padding: 16px 20px !important;
+    font-size: 13px !important;
+    justify-content: flex-start !important; /* Текст внутри кнопок тоже прижимаем влево */
+  }
+}
+
+
+
+/* ==========================================================
+   НЕЗАВИСИМЫЕ СТИЛИ ДЛЯ НИЖНЕЙ ПЛАШКИ СТАТИСТИКИ
+   ========================================================== */
+/* Общие стили для иконок внутри плашки */
+.panel-icon {
+  font-size: 16px !important; /* Размер иконки */
+  margin-right: 8px !important; /* Отступ между иконкой и текстом */
+}
+
+/* Красим звезду в золотой цвет */
+.icon-star {
+  color: #ffffff !important;
+}
+
+/* Красим пользователей в белый цвет (или в синий var(--main-color), если хотите как бренд) */
+.icon-users {
+  color: #ffffff !important;
+}
+
+/* Красим ценник (например, в легкий синий оттенок вашего бренда) */
+.icon-tag {
+  color: #ffffff !important; 
+}
+/* Стили для иконок внутри карточек преимуществ */
+.adv-card-icon {
+  font-size: 32px !important; /* Управляет размером иконок */
+  color: #252525 !important; /* Красит иконки в ваш синий цвет. Если хотите серые — замените на #333333 */
+  margin-bottom: 5px !important;
+  display: inline-block !important;
+}
+.advantage-icon svg {
+  color: #252525 !important;
+}
+
+
+
+/* Сама плашка, прилипающая к низу первого экрана */
+.gym-panel-bottom {
+  position: absolute !important;
+  bottom: -45px !important;
+  left: 0 !important;
+  width: 100% !important;
+  background-color: #00000000 !important; /* Полупрозрачный черный фон */
+  padding: 100px 0 !important;
+  box-sizing: border-box !important;
+  z-index: 5 !important;
+}
+
+/* Ограничитель ширины (выравнивает левый край по вашему меню) */
+.gym-panel-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important; /* Текст влево, стрелка вправо */
+  align-items: center !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 0 10ch !important; /* Боковой отступ 10ch как у шапки */
+  box-sizing: border-box !important;
+}
+
+/* Строка, удерживающая все три элемента вместе */
+.gym-panel-items-row {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 50px !important; /* Фиксированный зазор между пунктами */
+}
+
+/* Отдельный текстовый элемент статистики */
+.gym-panel-node {
+  color: #ffffff !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important; /* Запрещает тексту переноситься вниз */
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+/* ==========================================================================
+   АДАПТИВНОСТЬ ДЛЯ СМАРТФОНОВ (Экран меньше 1024px)
+   Применится только на мобилках! На ПК ничего не изменится.
+   ========================================================================= */
+@media (max-width: 1024px) {
+  /* 1. На мобилке убираем огромную дыру сверху */
+  .hero-section {
+    padding-top: 10px !important; 
+    padding-left: 20px !important; /* Сужаем гигантские десктопные отступы */
+    padding-right: 20px !important;
+    min-height: 100vh;
+    justify-content: flex-start !important;
+  }
+
+  /* 2. Уменьшаем гигантские шрифты под мобильный экран */
+  .hero-title {
+    font-size: 32px !important;
+  }
+
+  .blue-text {
+    font-size: 58px !important; /* Чтобы слово 'СИЛЬНЕЕ' влезало в экран */
+  }
+
+  /* 3. Кнопки перестраиваем вертикально */
+  .block-subscription {
+    flex-direction: column !important; 
+    width: 100% !important;
+    max-width: 320px !important; 
+    gap: 12px !important;
+  }
+
+  .subscription,
+  .subscription2 {
+    width: 100% !important;
+    padding: 16px 20px !important;
+    justify-content: flex-start !important; /* Текст кнопок слева */
+  }
+
+  /* 4. ОТПУСКАЕМ ПАНЕЛЬ СТАТИСТИКИ (на мобилке она пойдет сразу за кнопками) */
+  .gym-panel-bottom {
+    position: relative !important; /* Больше не абсолютная внизу, а идет по порядку */
+    bottom: auto !important;
+    left: auto !important;
+    padding: 40px 0 0 0 !important; /* Небольшой отступ от кнопок */
+  }
+
+  .gym-panel-wrapper {
+    padding: 0 !important; /* Убираем 10ch */
+  }
+
+  /* Пункты статистики тоже встают один под другим строго слева */
+  .gym-panel-items-row {
+    flex-direction: column !important;
+    gap: 16px !important;
+    align-items: flex-start !important;
+  }
+
+  .gym-panel-node {
+    font-size: 15px !important;
+    white-space: normal !important; /* Разрешаем перенос, если экран очень узкий */
+  }
+}
+
+
+
+
+/* 2. ПРЕИМУЩЕСТВА (ЗЕЛЕНЫЙ БЛОК) */
+/* ======================================================== */
+/* БАЗОВЫЕ СТИЛИ ДЕСТКТОПА (Ваш исходный код)               */
+/* ======================================================== */
+
+/* 2. ПРЕИМУЩЕСТВА (ЗЕЛЕНЫЙ БЛОК) */
+section.advantages-section {
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  background-color: #ffffff !important;
+  padding: 60px 0 !important;
+  box-sizing: border-box !important;
+  z-index: 10;
+}
+
+.advantages-container {
+  display: flex !important;
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  width: 1100px;
+  max-width: 1200px !important;
+  margin: auto !important;
+  padding: 0 10ch !important;
+  padding-top: 10px !important;
+  gap: 20px !important;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 1px 5px 10px rgba(22, 22, 22, 0.212);
+}
+
+.advantage-card {
+  flex: 1 !important;
+  text-align: center !important;
+  padding: 10px !important;
+}
+
+.advantage-icon {
+  font-size: 32px !important;
+  margin-bottom: 12px !important;
+}
+
+.advantage-title {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #111111 !important;
+  margin: 0 0 5px 0 !important;
+}
+
+.advantage-desc {
+  font-size: 15px !important;
+  color: #666666 !important;
+  margin-top: 20px !important;
+}
+
+
+/* ======================================================== */
+/* ИСПРАВЛЕННЫЙ АДАПТИВ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА            */
+/* ======================================================== */
+@media (max-width: 1150px) {
+  section.advantages-section {
+    padding: 40px 15px !important; 
+    width: 100% !important;
+    box-sizing: border-box !important; /* Гарантирует, что секция не выйдет за рамки экрана */
+  }
+
+  .advantages-container {
+    position: static !important;
+    transform: none !important;
+    
+    flex-direction: column !important;
+    align-items: center !important;
+    
+    width: 100% !important;
+    max-width: 100% !important;
+    
+    /* ИСПРАВЛЕНО: Добавляем border-box, чтобы внутренние отступы не распирали ширину в 100% */
+    box-sizing: border-box !important;
+    padding: 25px 15px !important; /* Немного уменьшили боковые отступы */
+    gap: 30px !important; 
+  }
+
+  .advantage-card {
+    width: 100% !important;
+    /* ИСПРАВЛЕНО: Меняем на max-width: 100%, чтобы карточка идеально сжималась под любой телефон */
+    max-width: 100% !important; 
+    box-sizing: border-box !important;
+  }
+
+  .advantage-desc {
+    margin-top: 8px !important; 
+    /* Разрешаем перенос длинных слов, если название улицы или оборудования слишком длинное */
+    word-wrap: break-word !important; 
+  }
+}
+
+
+
+
+
+/* 3. СЕКЦИЯ С ФОТОГРАФИЯМИ И ОПИСАНИЕМ */
+section.about-gym-section {
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  background-color: #ffffff !important;
+  padding: 80px 0 !important;
+  box-sizing: border-box !important;
+}
+
+
+/* Основной контейнер секции */
+.about-section {
+  padding: 80px 20px 20px 0px;
+  background-color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Левая колонка с текстом */
+.about-content {
+  flex: 1;
+}
+
+.about-section-label {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 32px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #000000 !important; 
+}
+
+
+.about-title {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #000000;
+  text-transform: uppercase;
+  margin: 0 0 24px 0;
+}
+
+.about-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444444;
+  margin-bottom: 32px;
+}
+
+/* Сетка карточек с тезисами */
+.about-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+
+.feature-item {
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Аккуратный эффект при наведении мыши */
+.feature-item:hover {
+  background: #ffffff;
+  border-color: #000000;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.feature-item strong {
+  display: block;
+  font-size: 16px;
+  color: #000000;
+  margin-bottom: 6px;
+}
+
+.feature-item span {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.4;
+}
+
+/* Правая колонка с медиа */
+.about-media {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image-wrapper {
+  width: 100%;
+  max-width: 550px;
+  height: 450px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+  background-color: #f5f5f5; /* Цвет фона пока грузится заглушка */
+  border-radius: 8px !important;
+  box-shadow: 1px 5px 10px rgba(22, 22, 22, 0.212);
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Адаптивная верстка под планшеты и смартфоны */
+@media (max-width: 992px) {
+  .about-container {
+    flex-direction: column-reverse; /* Фото встает наверх, текст вниз */
+    gap: 40px;
+  }
+  
+  .image-wrapper {
+    height: 350px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-features {
+    grid-template-columns: 1fr; /* Карточки выстраиваются в один столбец */
+  }
+  
+  .about-title {
+    font-size: 28px;
+  }
+
+  .about-section-label,
+  .about-title,
+  .about-description {
+    padding-left: 5%;
+  }
+}
+
+
+
+
+.about-gym-container {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  /* align-items: center !important; */
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 10ch !important;
+  gap: 60px !important;
+}
+
+.about-gym-info {
+  flex: 1 !important;
+  max-width: 420px !important;
+}
+
+
+.section-title {
+  font-size: 36px !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  color: #111111 !important;
+  margin: 0 0 25px 0 !important;
+  text-transform: uppercase !important;
+}
+
+.section-text {
+  font-size: 15px !important;
+  color: #444444 !important;
+  line-height: 1.6 !important;
+  margin-bottom: 35px !important;
+}
+
+.btn-secondary {
+  background: transparent !important;
+  border: 2px solid #111111 !important;
+  padding: 14px 28px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  border-radius: 4px !important;
+  display: inline-block !important;
+  color: #111111 !important;
+}
+
+.gym-photos-grid {
+  flex: 1.3 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 20px !important;
+}
+
+.photo-col-large {
+  flex: 1.5 !important;
+}
+
+/* Этот класс теперь автоматически применится к обеим правым колонкам */
+.photo-col-small {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+.gym-photo-item {
+  background-color: #eaeaea !important;
+  border-radius: 8px !important;
+  box-shadow: 1px 5px 10px rgba(22, 22, 22, 0.212);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #777777 !important;
+  font-size: 14px !important;
+  overflow: hidden; /* Чтобы картинка не вылезала за скругленные углы border-radius */
+}
+
+/* ВАЖНО: Добавьте это правило для правильного отображения картинок */
+.gym-photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Накладывает фото без растягивания и искажений */
+  display: block;
+}
+
+.large-photo {
+  height: 400px !important;
+}
+
+.small-photo {
+  height: 190px !important; /* Два фото по 190px + gap 20px как раз дают высоту большой фотки 400px */
+}
+
+/* ==========================================================================
+   АДАПТИВНОСТЬ ДЛЯ СЕТКИ ФОТОГРАФИЙ (КОМПАКТНЫЕ БЛОКИ)
+   ========================================================================= */
+
+@media (max-width: 1024px) {
+  /* Перестраиваем контейнер: текст сверху, галерея снизу */
+  .about-gym-container {
+    flex-direction: column !important;
+    padding: 0 20px !important; /* Убираем 10ch, ставим мобильные отступы */
+    gap: 30px !important;
+  }
+
+  .about-gym-info {
+    max-width: 100% !important;
+    text-align: left !important;
+  }
+  
+  .section-text {
+    margin-bottom: 25px !important;
+  }
+
+  /* Контейнер всей галереи переводим в вертикальный поток */
+  .gym-photos-grid {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 15px !important;
+  }
+
+  /* БЛОК 1: Главное большое фото сверху */
+  .photo-col-large {
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  .gym-photo-item.large-photo {
+    height: 240px !important; /* Умеренная высота для главного фото */
+    width: 100% !important;
+  }
+
+  /* БЛОК 2: Маленькие фотографии группируем сеткой (2 в ряд) */
+  .photo-col-small {
+    flex: none !important;
+    width: 100% !important;
+    
+    /* Переключаем колонку на CSS Grid для создания плитки */
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; /* Ровно две аккуратные колонки */
+    gap: 15px !important; /* Зазор между блоками картинок */
+  }
+
+  /* Задаем фиксированную высоту для мелких блоков */
+  .gym-photo-item.small-photo {
+    height: 140px !important; /* Компактный размер, чтобы фотки не были огромными */
+    width: 100% !important;
+  }
+}
+
+/* Дополнительная микро-коррекция для небольших смартфонов */
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 28px !important;
+  }
+  
+  .gym-photo-item.large-photo {
+    height: 180px !important; /* Ещё чуть компактнее на маленьких экранах */
+  }
+
+  .gym-photo-item.small-photo {
+    height: 110px !important; /* Идеальный размер плитки на ширине ~360px */
   }
 }

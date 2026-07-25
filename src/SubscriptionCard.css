@@ -1,0 +1,201 @@
+.sub-card {
+  background-color: #f8f9fa; /* Светло-серый фон карточки из макета */
+  color: #1a1a1a;
+  border-radius: 12px;
+  padding: 40px 30px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  text-align: left;
+  border: 1px solid #eef0f3;
+  width: 100%;
+  min-width: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sub-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Стиль для тёмной карточки по центру (3 МЕСЯЦА) */
+.sub-card-dark {
+  background-color: #0d1117; /* Глубокий темно-графитовый из макета */
+  color: #ffffff;
+  border: 1px solid #1f242c;
+  box-shadow: 0 10px 30px rgba(13, 17, 23, 0.3);
+}
+
+/* Тексты в шапке карточки */
+.sub-card-header h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 4px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.sub-card-header p {
+  font-size: 11px;
+  font-weight: 600;
+  color: #88888d;
+  margin: 0 0 30px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.sub-card-dark .sub-card-header p {
+  color: #6e7681;
+}
+
+/* Блок контейнера цены и подписи за месяц */
+.sub-card-price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 35px; /* Общий отступ от блока цены до списка преимуществ */
+}
+
+/* Основная цена (крупная) */
+.sub-card-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center; /* Центрируем цену как в макете */
+  gap: 4px;
+}
+
+.price-num {
+  font-size: 54px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* Иконка валюты рядом с большой ценой */
+.price-currency-icon {
+  width: 24px;   
+  height: auto;
+  align-self: flex-end; 
+  margin-bottom: 8px;   
+  
+  /* ЭФФЕКТ ЖИРНОСТИ: добавляем микро-обводку */
+  filter: drop-shadow(0.5px 0px 0px #1a1a1a) drop-shadow(-0.5px 0px 0px #1a1a1a);
+}
+
+/* Дополнительная мелкая строка под основной стоимостью */
+.price-per-month {
+  font-size: 13px;
+  font-weight: 600;
+  color: #88888d; /* Приглушенный серый цвет */
+  margin-top: 6px; /* Небольшой отступ вниз от цифры стоимости */
+  text-transform: lowercase;
+  white-space: nowrap; /* Защита от нежелательного переноса текста */
+}
+
+.sub-card-dark .price-per-month {
+  color: #8b949e; /* Более светлый серый для читаемости на темном фоне */
+}
+
+/* Иконка валюты в строках поменьше (/мес, /чел) */
+.price-sub-icon {
+  width: 12px;   
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 2px 2px 2px; 
+  
+  /* ЭФФЕКТ ЖИРНОСТИ для маленькой иконки */
+  filter: drop-shadow(0.3px 0px 0px #88888d) drop-shadow(-0.3px 0px 0px #88888d);
+}
+
+/* ИНВЕРСИЯ ЦВЕТА ДЛЯ ТЕМНОЙ КАРТОЧКИ */
+.sub-card-dark .price-currency-icon {
+  filter: invert(1) brightness(2) drop-shadow(0.5px 0px 0px #ffffff) drop-shadow(-0.5px 0px 0px #ffffff);
+}
+
+.sub-card-dark .price-sub-icon {
+  filter: invert(1) brightness(2) drop-shadow(0.3px 0px 0px #8b949e) drop-shadow(-0.3px 0px 0px #8b949e);
+}
+
+/* Список преимуществ */
+.sub-card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 35px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1;
+}
+
+.sub-card-features li {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #484f58;
+}
+
+.sub-card-dark .sub-card-features li {
+  color: #c9d1d9;
+}
+
+/* Синяя кнопка КУПИТЬ */
+.sub-card-btn {      
+  max-width: 100% !important;
+  flex-shrink: 0 !important;     
+  padding: 16px !important;
+  background-color: #1d4ed8 !important; 
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  cursor: pointer !important;
+  margin-top: auto !important;   
+  transition: background-color 0.2s ease !important;
+  text-align: center;
+}
+
+.sub-card-btn:hover {
+  background-color: #1e40af;
+}
+
+/* Бейджи сверху карточек */
+.sub-card-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%); 
+  padding: 6px 16px;
+  border-radius: 6px; 
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.badge-blue {
+  background-color: #007aff;
+}
+
+.badge-red {
+  background-color: #ff3b30;
+}
+
+/* Перебиваем прижатие к левому краю и центрируем карточки */
+.sub-cards-grid {
+  justify-content: center !important;
+  gap: 24px !important; /* Делаем красивый отступ между ними */
+}
+
+/* Задаем фиксированную ширину карточкам, чтобы они не растягивались */
+.sub-cards-grid .sub-card {
+  max-width: 300px !important;
+  width: 100%;
+}

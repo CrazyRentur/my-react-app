@@ -1,0 +1,148 @@
+/* ======================================================== */
+/* БАЗОВЫЕ СТИЛИ ДЕСТКТОПА (Ваш исходный код)               */
+/* ======================================================== */
+
+/* Принудительно красим телефон в нужный цвет */
+.footer-container a.phone-link,
+.footer-container .phone-link {
+  color: #1a1a1a !important;
+  text-decoration: none !important;
+}
+
+/* Принудительно красим инстаграм в нужный цвет */
+.footer-container a.social-link,
+.footer-container .social-link {
+  color: #1a1a1a !important;
+  text-decoration: none !important;
+}
+
+/* Добавим легкий эффект при наведении, чтобы пользователь видел, что это ссылка */
+.footer-container a.phone-link:hover,
+.footer-container a.social-link:hover {
+  color: #0066cc !important;
+  text-decoration: underline !important;
+}
+
+.footer-container {
+  background-color: #f4f5f7; /* Светлый фон из макета */
+  padding: 40px 20px;
+  font-family: sans-serif;
+  color: #1a1a1a;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 24px;
+}
+
+/* Стилизация колонок */
+.footer-contacts, 
+.footer-map-wrapper, 
+.footer-photo-wrapper {
+  flex: 1; /* Распределяет блоки поровну */
+  min-width: 280px;
+}
+
+.footer-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.contacts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.contact-icon {
+  margin-right: 12px;
+  margin-top: 3px;
+  color: #555;
+}
+
+.route-link {
+  color: #0066cc;
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.footer-map-wrapper {
+  flex: 1;
+  min-width: 280px;
+  height: 320px; /* Задаем четкую высоту, чтобы карта не сжималась */
+  border-radius: 6px;
+  overflow: hidden; /* Скругляет углы у интерактивной карты */
+  border: 1px solid #e0e0e0;
+  /* ЭТИ СТРОЧКИ ДЕЛАЮТ КАРТУ ЧЕРНО-БЕЛОЙ */
+  filter: grayscale(90%) contrast(90%) !important;
+  transition: filter 0.3s ease-in-out;
+}
+
+/* Эффект при наведении: карта плавно становится цветной, чтобы пользователю было удобно */
+.footer-map-wrapper:hover {
+  filter: grayscale(0%) !important;
+}
+
+.footer-building-photo {
+  width: 100%;
+  height: 320px; /* Делаем высоту фото такой же, как у карты */
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* Делаем карту внутри футера полностью черно-белой */
+.footer-map-placeholder iframe {
+  width: 100%;       /* Гарантируем растягивание iframe по ширине */
+  height: 100%;      /* Гарантируем растягивание iframe по высоте родителя */
+  border: 0;
+  filter: grayscale(100%) invert(90%) contrast(120%) !important;
+  transition: filter 0.3s ease;
+}
+
+/* Эффект при наведении (необязательно): карта плавно становится цветной */
+.footer-map-placeholder iframe:hover {
+  filter: grayscale(0%) invert(0%) contrast(100%) !important;
+}
+
+
+/* ======================================================== */
+/* ДОБАВЛЕННЫЙ АДАПТИВ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА             */
+/* ======================================================== */
+@media (max-width: 992px) {
+  .footer-content {
+    flex-direction: column; /* Выстраиваем колонки вертикально на смартфонах и планшетах */
+    gap: 32px;              /* Немного увеличиваем отступ между блоками */
+  }
+
+  .footer-contacts, 
+  .footer-map-wrapper, 
+  .footer-photo-wrapper {
+    width: 100%;            /* Элементы занимают всю доступную ширину экрана */
+    min-width: unset;       /* Сбрасываем ограничение минимальной ширины */
+  }
+
+  .footer-map-wrapper,
+  .footer-building-photo {
+    height: 240px;          /* Уменьшаем высоту карты и фото для экономии экрана телефона */
+  }
+
+  /* На телефонах эффект ховера (hover) работает плохо, поэтому делаем карту частично цветной сразу */
+  .footer-map-wrapper,
+  .footer-map-placeholder iframe {
+    filter: grayscale(40%) contrast(100%) !important; 
+  }
+}

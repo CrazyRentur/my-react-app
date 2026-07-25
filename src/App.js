@@ -1,23 +1,51 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+
+// Существующие компоненты (остаются как есть)
+import Footer from './Footer';
+import Call from './Call';
+import Services from './Services';
+import SubscriptionCard from './SubscriptionCard';
+import Preloader from './Preloader';
+
+// Новые компоненты (из папки components)
+import Header from './components/Header';
+import Hero from './components/Hero';
+import StatsPanel from './components/StatsPanel';
+import Advantages from './components/Advantages';
+import About from './components/About';
+import GymGallery from './components/GymGallery';
+import Subscriptions from './components/Subscriptions';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <Preloader />;
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Call />
+      <div className="hero-section">
+        <Header />
+        <Hero />
+        <StatsPanel />
+      </div>
+      <Advantages />
+      <About />
+      <GymGallery />
+      <Subscriptions />
+      <Services />
+      <Footer />
     </div>
   );
 }

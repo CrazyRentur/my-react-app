@@ -1,0 +1,51 @@
+/* Полноэкранный контейнер, который перекрывает весь сайт во время загрузки */
+.preloader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff; /* Белый фон под стиль твоего сайта */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Максимальный приоритет, чтобы быть поверх меню и кнопок */
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Логотип: одновременно крутится и пульсирует */
+.preloader-logo {
+  width: 300px; /* Оптимальный размер для экрана загрузки */
+  height: auto;
+  object-fit: contain;
+  /* Запускаем анимацию на 3 секунды, бесконечно, плавно туда-обратно (alternate) */
+  animation: logo-spin-and-pulse 3s infinite ease-in-out alternate;
+}
+
+.preloader-text {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Комбинированная анимация: вращение от 0 до 360 + пульсация scale от 0.9 до 1.1 */
+@keyframes logo-spin-and-pulse {
+  0% {
+    transform:scale(0.9);
+  }
+  50% {
+    transform: scale(1.1); /* В пике вращения логотип становится больше */
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
