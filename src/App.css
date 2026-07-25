@@ -191,6 +191,16 @@ button {
     order: 3; /* Принудительно ставим в самый конец строки */
   }
 
+  /* При наведении линия плавно растягивается во всю ширину текста */
+  .logo img {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+    /* animation: nav-menu-spin infinite 10s ease-in-out; */
+    /* Плавный переход для увеличения (0.3 секунды) */
+    transition: scale 0.2s ease-in-out; 
+  }
+
   /* Соцсети сдвигаем правее к троеточию */
   .social-icons {
     margin-left: auto;
@@ -200,6 +210,8 @@ button {
   .social-icons a {
     font-size: 26px;
   }
+
+  
 
   /* Превращаем навигацию в компактный выпадающий список под шапкой */
   .nav-menu {
