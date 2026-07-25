@@ -292,6 +292,7 @@ button {
 
 /* Контентный блок */
 .hero-content {
+  padding-top: 100px;
   width: 100%;
   max-width: 900px;
   display: flex;
