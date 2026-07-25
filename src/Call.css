@@ -156,3 +156,40 @@
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
+/* --- АДАПТИВ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ --- */
+@media (max-width: 768px) {
+  /* Уменьшаем размеры кнопки и отступы от краев экрана */
+  .floating-call-btn {
+    bottom: 50px;   /* Прижимаем ближе к нижнему краю */
+    right: 30px;    /* Прижимаем ближе к правому краю */
+    width: 60px;    /* Уменьшаем ширину */
+    height: 60px;   /* Уменьшаем высоту */
+    box-shadow: 0 4px 12px rgba(15, 11, 252, 0.2);
+  }
+
+  /* Уменьшаем размер иконки внутри кнопки на мобилках */
+  .floating-call-btn svg {
+    font-size: 24px !important; 
+  }
+
+  /* Корректируем толщину пульсирующей рамки */
+  .floating-call-btn::after {
+    border-width: 4px;
+  }
+
+  /* Немного уменьшаем отступы в модальном окне, чтобы оно аккуратно ложилось на экран телефона */
+  .call-modal-content {
+    padding: 24px;
+    width: 85%; /* Оставляем небольшие поля по бокам */
+  }
+
+  .call-modal-title {
+    font-size: 18px; /* Чуть уменьшаем шрифт заголовка */
+  }
+
+  .call-link {
+    padding: 12px;  /* Делаем кнопки звонка и ТГ чуть компактнее по высоте */
+    font-size: 14px;
+  }
+}
