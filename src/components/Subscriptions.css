@@ -186,7 +186,7 @@
 /* Стиль для маленькой пометки под категориями */
 .filter-panel-note {
   margin: 25px 0 0 0 !important; /* Отступ сверху от последней кнопки */
-  font-size: 11px !important;    /* Маленький аккуратный шрифт */
+  font-size: 11px;   /* Маленький аккуратный шрифт */
   line-height: 1.4 !important;
   color: #88888d !important;     /* Приглушенный серый цвет текста */
   font-weight: 500 !important;
@@ -197,6 +197,7 @@
 @media (max-width: 1024px) {
   .filter-panel-note {
     margin: 10px 0 0 4px !important; /* Уменьшаем отступ на мобильных */
-    color: #c9d1d9 !important;       /* Делаем светлее, если на мобилках фон становится темным */
+    color: #c9d1d9 !important;
+    font-size: 20px !important;      /* Делаем светлее, если на мобилках фон становится темным */
   }
 }

@@ -9,8 +9,8 @@ import { FaMapMarkerAlt, FaRegClock, FaPhoneAlt, FaInstagram, FaTelegramPlane} f
 
 export default function Footer() {
   // Координаты ул. Гамарника, 30А
-  const lat = '53.9575';
-  const lng = '27.6042';
+  const lat = '53.957148';
+  const lng = '27.606268';
   const label = encodeURIComponent('Тренажерный зал ONE');
 
   // Проверяем, мобильное ли устройство и какая ОС
