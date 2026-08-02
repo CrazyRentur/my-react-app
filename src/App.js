@@ -17,6 +17,7 @@ import About from './components/About';
 import GymGallery from './components/GymGallery';
 import Subscriptions from './components/Subscriptions';
 
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
