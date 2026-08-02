@@ -34,10 +34,10 @@ function Hero() {
           Купить абонемент <img src={arrow} className="arrow" alt="arrow" />
         </button>
 
-        <button className="subscription2">
+        <a href="https://t.me/+NMl8Zh9GTHZiYTRi" className="subscription2">
           Получить консультацию
           <span className="btn-msg-icon">💬</span>
-        </button>
+        </a>
       </div>
     </div>
   );
