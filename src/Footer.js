@@ -9,7 +9,7 @@ import { FaMapMarkerAlt, FaRegClock, FaPhoneAlt, FaInstagram, FaTelegramPlane} f
 
 export default function Footer() {
   // Прямые ссылки на карточки заведения, которые железно откроются на ПК и в приложениях на телефонах
-  const yandexLink = "https://yandex.by/maps/-/CTCMR-ZG";
+  const yandexLink = "https://yandex.by/maps/org/one/29243496810/?ll=27.605762%2C53.956936&mode=search&sctx=ZAAAAAgCEAAaKAoSCQXhCijUjztAER%2Faxwp%2B80pAEhIJiXlW0opv3D8Rk40HW%2Bz2yz8iBgABAgMEBSgKOABAtZ4GSAFqAnVhnQHNzMw9oAEAqAEAvQG1yOecwgEP342ahgXqsrH4bPG7%2BIFJggIb0JzQuNC90YHQuiDRhNC40YLQvdC10YEgb25ligIAkgIDMTU3mgIMZGVza3RvcC1tYXBz&sll=27.606195%2C53.956936&sspn=0.002197%2C0.001079&text=Минск%20фитнес%20one&z=19.25";
   const googleLink = "https://maps.app.goo.gl/xXaAgp3ZyZokLeDu6";
 
   return (
