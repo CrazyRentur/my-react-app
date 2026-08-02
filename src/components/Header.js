@@ -4,12 +4,34 @@ import line3 from '../assets/icons/line3.svg';
 import { FaInstagram, FaTelegramPlane } from 'react-icons/fa';
 
 function Header() {
-  const menuItems = ['О нас', 'Тренажерный зал', 'Абонемент', 'Услуги', 'Контакты'];
-  // Состояние для открытия/закрытия мобильного меню
+  // 1. Превращаем массив в объекты, где у каждого пункта есть свое имя и точный id блока
+  const menuItems = [
+    { name: 'О нас', id: 'about' },
+    { name: 'Тренажерный зал', id: 'gym' },
+    { name: 'Абонементы', id: 'pricing' },
+    { name: 'Услуги', id: 'services' },
+    { name: 'Контакты', id: 'contacts' }
+  ];
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  // 2. Функция для плавного скролла к нужному блоку
+  const handleScroll = (id) => {
+    setIsMenuOpen(false); // Закрываем мобильную бургер-менюшку при клике
+
+    // Находим нужный блок на странице по его id
+    const element = document.getElementById(id);
+    if (element) {
+      // Запускаем плавную прокрутку браузера
+      element.scrollIntoView({
+        behavior: 'smooth', // Делает скролл плавным
+        block: 'start'      // Доезжает ровно до верхнего края блока
+      });
+    }
   };
 
   return (
@@ -18,11 +40,13 @@ function Header() {
         <img src={logoImage} alt="Логотип компании" />
       </div>
 
-      {/* Добавляем динамический класс 'open' в зависимости от состояния */}
       <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
         {menuItems.map((item, index) => (
           <div key={index} className="mainMenu">
-            <p onClick={() => setIsMenuOpen(false)}>{item}</p>
+            {/* 3. Вешаем вызов функции handleScroll и передаем туда id блока */}
+            <p onClick={() => handleScroll(item.id)} style={{ cursor: 'pointer' }}>
+              {item.name}
+            </p>
           </div>
         ))}
       </nav>
@@ -36,7 +60,6 @@ function Header() {
         </a>
       </div>
 
-      {/* Кнопка бургера — вешаем клик для переключения меню */}
       <div className="burger-menu" onClick={toggleMenu}>
         <img src={line3} className="line3" alt="menu icon" />
       </div>

@@ -31,7 +31,7 @@ export default function Subscriptions() {
   const filteredCards = subscriptionsData.filter(sub => sub.category === activeCategory);
 
   return (
-    <section className="sub-section">
+    <section id='pricing' className="sub-section">
       <h2>Тарифы и абонементы</h2>
       
       <div className="sub-container">

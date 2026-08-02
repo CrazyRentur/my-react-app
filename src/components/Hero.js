@@ -1,6 +1,18 @@
+import React from 'react';
 import arrow from '../assets/icons/right-arrow.svg';  // ← ../assets
 
 function Hero() {
+  // Функция для плавного перехода к абонементам
+  const scrollToPricing = () => {
+    const element = document.getElementById('pricing');
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    }
+  };
+
   return (
     <div className="hero-content">
       <p className="hero-subtitle">Тренажерный зал в Зеленом Лугу</p>
@@ -17,7 +29,8 @@ function Hero() {
       </p>
 
       <div className="block-subscription">
-        <button className="subscription">
+        {/* Добавили onClick для вызова плавной прокрутки */}
+        <button className="subscription" onClick={scrollToPricing}>
           Купить абонемент <img src={arrow} className="arrow" alt="arrow" />
         </button>
 

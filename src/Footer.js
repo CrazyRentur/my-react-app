@@ -13,7 +13,7 @@ export default function Footer() {
   const googleLink = "https://maps.app.goo.gl/xXaAgp3ZyZokLeDu6";
 
   return (
-    <footer className="footer-container">
+    <footer id='contacts' className="footer-container">
       <div className="footer-content">
         
         {/* Блок контактов */}

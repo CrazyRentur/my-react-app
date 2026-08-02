@@ -71,7 +71,7 @@ function GymGallery() {
   }, [isOpen]);
 
   return (
-    <section className="about-gym-section">
+    <section id='gym' className="about-gym-section">
       <div className="about-gym-container">
         <div className="about-gym-info">
           <h2 className="section-title">
