@@ -9,11 +9,13 @@ export default function SubscriptionCard({ duration, price, pricePerMonth, price
   let displayPrice = price;
   let displaySubText = null;
   let subHeaderLabel = subText;
+  let pricePeriod = null; // Переменная для приставки справа от иконки
 
   // ЛОГИКА РОКИРОВКИ:
   if (pricePerMonth) {
     displayPrice = pricePerMonth; // Месячная цена становится КРУПНОЙ
     subHeaderLabel = 'цена за мес.'; // Динамический подзаголовок в шапке
+    pricePeriod = '/мес'; // Добавляем приставку
     displaySubText = (
       <>
         {price} <img src={bynIcon} alt="BYN" className="price-sub-icon" /> всего
@@ -23,6 +25,7 @@ export default function SubscriptionCard({ duration, price, pricePerMonth, price
   else if (pricePerPerson) {
     displayPrice = pricePerPerson; // Цена за человека становится КРУПНОЙ
     subHeaderLabel = 'цена за чел.'; // Динамический подзаголовок в шапке
+    pricePeriod = '/чел'; // Добавляем приставку
     displaySubText = (
       <>
         {price} <img src={bynIcon} alt="BYN" className="price-sub-icon" /> за всех
@@ -50,6 +53,11 @@ export default function SubscriptionCard({ duration, price, pricePerMonth, price
         <div className="sub-card-price">
           <span className="price-num">{displayPrice}</span>
           <img src={bynIcon} alt="BYN" className="price-currency-icon" />
+          
+          {/* ДОБАВЛЕНО: Текстовая приставка справа от иконки */}
+          {pricePeriod && (
+            <span className="price-period-label">{pricePeriod}</span>
+          )}
         </div>
         
         {/* МЕЛКАЯ ПОДПИСЬ СНИЗУ (Появится только если была рокировка) */}

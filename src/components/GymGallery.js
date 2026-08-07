@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 // Эти импорты остаются для стартовой сетки (плитки на самой странице)
-import photoLarge from '../assets/images/test.jpg';     
-import photoLocker from '../assets/images/test.jpg';   
-import photoShower from '../assets/images/test.jpg';   
-import photoReception from '../assets/images/test.jpg';
-import photoBoxing from '../assets/images/test.jpg';   
+import photoLarge from '../assets/images/IMG_7179.JPG';     
+import photoLocker from '../assets/images/IMG_7177.JPG';   
+import photoShower from '../assets/images/IMG_7175.JPG';   
+import photoReception from '../assets/images/IMG_7163.JPG';
+import photoBoxing from '../assets/images/IMG_07179.JPG';   
 
 function GymGallery() {
   const [isOpen, setIsOpen] = useState(false);

@@ -69,17 +69,17 @@
 }
 
 .price-num {
-  font-size: 54px;
+  font-size: 35px;
   font-weight: 900;
   line-height: 1;
 }
 
 /* Иконка валюты рядом с большой ценой */
 .price-currency-icon {
-  width: 24px;   
+  width: 18px;   
   height: auto;
   align-self: flex-end; 
-  margin-bottom: 8px;   
+  margin-bottom: 3px;   
   
   /* ЭФФЕКТ ЖИРНОСТИ: добавляем микро-обводку */
   filter: drop-shadow(0.5px 0px 0px #1a1a1a) drop-shadow(-0.5px 0px 0px #1a1a1a);
@@ -198,4 +198,24 @@
 .sub-cards-grid .sub-card {
   max-width: 300px !important;
   width: 100%;
+}
+
+/* Контейнер главной цены должен выстраивать элементы в одну линию по нижнему краю */
+.sub-card-price {
+  display: flex;
+  align-items: baseline; /* Выравнивает текст и иконки по нижней линии шрифта */
+  justify-content: center; /* Центрирует всю группу элементов */
+}
+
+/* Стилизация новой приставки */
+.price-period-label {
+  font-size: 18px; /* Оптимальный размер, чтобы быть меньше крупной цифры, но читаться */
+  font-weight: 600;
+  color: #777777; /* Серый цвет на светлой карточке */
+  margin-left: 0px; /* Легкий отступ от иконки BYN */
+}
+
+/* Корректировка цвета для темной карточки (если isDark = true) */
+.sub-card-dark .price-period-label {
+  color: #aaaaaa; /* Светло-серый цвет, чтобы приставка не сливалась с темным фоном */
 }

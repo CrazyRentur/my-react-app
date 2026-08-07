@@ -32,8 +32,9 @@ button {
   /* Затемнение фона + сама картинка (замените путь на вашу картинку из зала) */
   background: radial-gradient(
       circle at left center, /* Центр градиента слева по вертикали */
-      rgba(0, 0, 0, 0.8) 50%,   /* Сильное затемнение в начале */
-      rgba(0, 0, 0, 0) 100%     /* Полное исчезновение затемнения */
+      rgba(0, 0, 0, 0.7) 30%,
+      rgba(0, 0, 0, 0.0) 50%,    /* Сильное затемнение в начале */
+      rgba(0, 0, 0, 0.7) 100%     /* Полное исчезновение затемнения */
     ), 
     url(./assets/images/backgroundHeader.jpg) center/cover no-repeat;
   
@@ -41,6 +42,18 @@ button {
   flex-direction: column;
   justify-content: center; /* Центрирует текст hero-content по вертикали */
   align-items: center; /* Центрирует текст hero-content по горизонтали */
+}
+
+@media (max-width: 1150px) {
+  .hero-section {
+    background: radial-gradient(
+      circle at left center, /* Центр градиента слева по вертикали */
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.5) 50%,    /* Сильное затемнение в начале */
+      rgba(0, 0, 0, 1) 100%     /* Полное исчезновение затемнения */
+    ), 
+    url(./assets/images/backgroundHeader.jpg) center/cover no-repeat;
+  }
 }
 
 
@@ -673,39 +686,37 @@ section.advantages-section {
 /* ======================================================== */
 /* ИСПРАВЛЕННЫЙ АДАПТИВ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА            */
 /* ======================================================== */
-@media (max-width: 1150px) {
+@media (max-width: 768px) {
   section.advantages-section {
-    padding: 40px 15px !important; 
-    width: 100% !important;
-    box-sizing: border-box !important; /* Гарантирует, что секция не выйдет за рамки экрана */
+    padding: 30px 10px !important; 
   }
 
   .advantages-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* Включает сетку 2х3 */
+    gap: 25px 10px !important; 
+    padding: 25px 10px !important;
     position: static !important;
     transform: none !important;
-    
-    flex-direction: column !important;
-    align-items: center !important;
-    
     width: 100% !important;
     max-width: 100% !important;
-    
-    /* ИСПРАВЛЕНО: Добавляем border-box, чтобы внутренние отступы не распирали ширину в 100% */
     box-sizing: border-box !important;
-    padding: 25px 15px !important; /* Немного уменьшили боковые отступы */
-    gap: 30px !important; 
   }
 
   .advantage-card {
     width: 100% !important;
-    /* ИСПРАВЛЕНО: Меняем на max-width: 100%, чтобы карточка идеально сжималась под любой телефон */
     max-width: 100% !important; 
     box-sizing: border-box !important;
+    padding: 0 !important;
+  }
+
+  .advantage-title {
+    font-size: 14px !important; 
   }
 
   .advantage-desc {
-    margin-top: 8px !important; 
-    /* Разрешаем перенос длинных слов, если название улицы или оборудования слишком длинное */
+    font-size: 12px !important;
+    margin-top: 6px !important; 
     word-wrap: break-word !important; 
   }
 }

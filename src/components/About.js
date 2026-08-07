@@ -1,4 +1,4 @@
-import photoAbout from '../assets/images/test.jpg';
+import photoAbout from '../assets/images/about-media.jpg';
 
 function About() {
   const features = [

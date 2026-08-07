@@ -80,6 +80,34 @@
   margin-top: 4px;
 }
 
+/* ======================================================== */
+/* НОВЫЙ БЛОК: Стили для юридической информации             */
+/* ======================================================== */
+.footer-legal-info {
+  margin-top: 25px; /* Отступ от списка контактов сверху */
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08); /* Тонкая серая линия на светлом фоне */
+}
+
+.legal-title {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+}
+
+.legal-text {
+  font-size: 12px; /* Аккуратный приглушенный шрифт */
+  line-height: 1.6;
+  color: #666666; /* Серый цвет для второстепенной информации */
+  margin: 0;
+}
+
+/* ======================================================== */
+/* Стилизация интерактивных медиа-элементов                 */
+/* ======================================================== */
 .footer-map-wrapper {
   flex: 1;
   min-width: 280px;
@@ -144,5 +172,11 @@
   .footer-map-wrapper,
   .footer-map-placeholder iframe {
     filter: grayscale(40%) contrast(100%) !important; 
+  }
+  
+  /* Сброс лишних отступов юридического блока на мобильных для аккуратности */
+  .footer-legal-info {
+    margin-top: 20px;
+    padding-top: 12px;
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import gymBuilding from './assets/images/test.jpg'; // Правильный импорт картинки
+import gymBuilding from './assets/images/IMG_6756.JPG'; // Правильный импорт картинки
 
 // 1. ИМПОРТИРУЕМ ВАШУ КАРТУ
 import MyMap from './map';
@@ -16,7 +16,7 @@ export default function Footer() {
     <footer id='contacts' className="footer-container">
       <div className="footer-content">
         
-        {/* Блок контактов */}
+        {/* Блок контактов и юр. информации */}
         <div className="footer-contacts">
           <h3 className="footer-title">КАК НАС НАЙТИ</h3>
           
@@ -26,7 +26,6 @@ export default function Footer() {
               <div className="contact-text">
                 <p>г. Минск, ул. Гамарника, 30А</p>
                 
-                {/* ИСПРАВЛЕНО: Две раздельные ссылки вместо одной динамической */}
                 <div className="route-links-group">
                   <a 
                     href={yandexLink} 
@@ -76,6 +75,17 @@ export default function Footer() {
               </div>    
             </li>
           </ul>
+
+          {/* ДОБАВЛЕНО: Блок юридической информации */}
+          <div className="footer-legal-info">
+            <h4 className="legal-title">ЮР. ИНФОРМАЦИЯ</h4>
+            <p className="legal-text">
+              ИП МАМЕДОВ РАШАД АГАВЕРДИ ОГЛЫ.<br />
+              УНП 490626078<br />
+              Юр. адрес: Беларусь, г. Гомель,<br />
+              ул. Мазурова 87, 246006
+            </p>
+          </div>
         </div>
 
         {/* 2. БЛОК КАРТЫ */}

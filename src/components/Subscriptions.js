@@ -4,7 +4,7 @@ import './Subscriptions.css'; // ПОДКЛЮЧАЕМ ВНЕШНИЙ CSS
 
 const subscriptionsData = [
   { id: 1, category: 'count', duration: 'РАЗОВОЕ ПОСЕЩЕНИЕ', price: '25', features: ['Разовое посещение', 'Доступ: Весь день', 'Действует в день покупки и предоставляет разовый доступ в тренажёрный зал'] },
-  { id: 2, category: 'count', duration: '30 дней ', price: '95', features: ['Доступ: Весь день', 'Сгорают через 30 дней', '1 гостевой визит'] , subText:'8 ПОСЕЩЕНИЙ' },
+  { id: 2, category: 'count', duration: '8 ПОСЕЩЕНИЙ ', price: '95', features: ['Доступ: Весь день', 'Сгорают через 30 дней', '1 гостевой визит'] , subText:'30 дней' },
   { id: 3, category: 'morning', duration: '1 МЕСЯЦ', price: '80', features: ['Безлимит утро', 'Доступ: До 17:00', '1 гостевой визит'] },
   { id: 4, category: 'morning', duration: '3 МЕСЯЦА', price: '210', pricePerMonth: '70', badgeText: 'ВЫГОДНО', badgeColor: 'blue', features: ['Безлимит утро', 'Доступ: До 17:00', 'Заморозка: 7 дней', '3 гостевых визита'] },
   { id: 5, category: 'morning', duration: '12 МЕСЯЦЕВ', price: '820', pricePerMonth: '68.33', badgeText: 'МАКСИМАЛЬНАЯ ВЫГОДА', badgeColor: 'red', isDark: true, features: ['Безлимит утро', 'Доступ: До 17:00', 'Заморозка: 12 дней', '12 гостевых визитов'] },
@@ -67,10 +67,13 @@ export default function Subscriptions() {
               </button>
             ))}
           </div>
-          {/* НОВАЯ ПОМЕТКА СНИЗУ */}
-          <p className="filter-panel-note">
-            Для абонентов на утро занятие необходимо завершить до 17:00
-          </p>
+          
+          {/* ПОМЕТКА ОТОБРАЖАЕТСЯ ТОЛЬКО ДЛЯ УТРЕННИХ, СЕМЕЙНЫХ И УЧЕБНЫХ ТАРИФОВ */}
+          {['morning', 'family', 'student'].includes(activeCategory) && (
+            <p className="filter-panel-note">
+              Для абонентов на утро занятие необходимо завершить до 17:00
+            </p>
+          )}
         </aside>
       </div>
     </section>
