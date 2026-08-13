@@ -201,3 +201,56 @@
     font-size: 20px !important;      /* Делаем светлее, если на мобилках фон становится темным */
   }
 }
+
+/* ==========================================================================
+   ССЫЛКА НА ПРАВИЛА ПОСЕЩЕНИЯ ЗАЛА
+   ========================================================================= */
+.legal-link-container {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-top: 25px !important;       /* Ровный отступ сверху */
+  padding-top: 20px !important;
+  border-top: 1px solid #eef0f3 !important; /* Тонкая серая линия-разделитель */
+  box-sizing: border-box !important;
+}
+
+.legal-icon {
+  color: #2a39ac !important;          /* Строгий черный цвет для иконки */
+  flex-shrink: 0 !important;
+}
+
+.legal-link {
+  color: #1a1a1a !important;          /* Черный цвет текста ссылки */
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  text-decoration: underline !important; /* Подчеркивание для кликабельности */
+  text-transform: uppercase !important; /* Капслок как у заголовков панели */
+  letter-spacing: 0.5px !important;
+  cursor: pointer !important;
+  transition: opacity 0.15s ease !important;
+}
+
+.legal-link:hover {
+  opacity: 0.6 !important;            /* Эффект затухания при наведении */
+}
+
+/* Адаптивность для ссылки на мобилках (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .legal-link-container {
+    margin-top: 15px !important;
+    padding-top: 15px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important; /* Светлая линия для темного мобильного фона */
+    justify-content: flex-start !important;
+    padding-left: 4px !important;
+  }
+
+  .legal-icon {
+    color: #2a39ac !important;        /* Светлая иконка для мобильной версии */
+  }
+
+  .legal-link {
+    color: #2a39ac !important;        /* Светлый текст ссылки на мобильных устройствах */
+    font-size: 20px !important;
+  }
+}

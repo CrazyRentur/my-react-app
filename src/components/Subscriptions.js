@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaFileContract } from 'react-icons/fa'; // Импортируем черную юридическую иконку
 import SubscriptionCard from '../SubscriptionCard'; 
 import './Subscriptions.css'; // ПОДКЛЮЧАЕМ ВНЕШНИЙ CSS
 
@@ -31,7 +32,7 @@ export default function Subscriptions() {
   const filteredCards = subscriptionsData.filter(sub => sub.category === activeCategory);
 
   return (
-    <section id='pricing' className="sub-section">
+<section id='pricing' className="sub-section">
       <h2>Тарифы и абонементы</h2>
       
       <div className="sub-container">
@@ -43,7 +44,7 @@ export default function Subscriptions() {
               duration={sub.duration}
               price={sub.price}
               pricePerMonth={sub.pricePerMonth}
-              pricePerPerson={sub.pricePerPerson} // Передаем цену за человека
+              pricePerPerson={sub.pricePerPerson}
               badgeText={sub.badgeText}
               badgeColor={sub.badgeColor}
               isDark={sub.isDark}
@@ -74,6 +75,19 @@ export default function Subscriptions() {
               Для абонентов на утро занятие необходимо завершить до 17:00
             </p>
           )}
+
+          {/* НОВЫЙ БЛОК: Ссылка на правила посещения */}
+          <div className="legal-link-container">
+            <FaFileContract size={20} className="legal-icon" />
+            <a 
+              href="https://drive.google.com/file/d/1Zlkz5PfZ1JVERV0YiNGL6AMl6H9H6PcV/view" // Укажите путь к вашему файлу (например, в папке public) или роуту /rules
+              target="_blank"   // Откроет правила в новой вкладке
+              rel="noreferrer"
+              className="legal-link"
+            >
+              Правила посещения зала
+            </a>
+          </div>
         </aside>
       </div>
     </section>
