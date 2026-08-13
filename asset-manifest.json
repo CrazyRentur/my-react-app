@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/my-react-app/static/css/main.a328a35c.css",
-    "main.js": "/my-react-app/static/js/main.919c1479.js",
+    "main.css": "/my-react-app/static/css/main.609df290.css",
+    "main.js": "/my-react-app/static/js/main.3776b496.js",
     "static/js/453.6bd4553c.chunk.js": "/my-react-app/static/js/453.6bd4553c.chunk.js",
     "static/media/backgroundHeader.jpg": "/my-react-app/static/media/backgroundHeader.5d8dc9e09c70de4cdb5f.jpg",
     "static/media/image-1.PNG": "/my-react-app/static/media/image-1.e35082173a787318e4ac.PNG",
@@ -46,12 +46,12 @@
     "static/media/BYN.svg": "/my-react-app/static/media/BYN.2a5f3bd1f65611a78868793d5c80ea04.svg",
     "static/media/line3.svg": "/my-react-app/static/media/line3.c41c049c5ed70736fe1655ef10006837.svg",
     "static/media/right-arrow.svg": "/my-react-app/static/media/right-arrow.c6f0e80ccf7dfb9601ccac30755d2e46.svg",
-    "main.a328a35c.css.map": "/my-react-app/static/css/main.a328a35c.css.map",
-    "main.919c1479.js.map": "/my-react-app/static/js/main.919c1479.js.map",
+    "main.609df290.css.map": "/my-react-app/static/css/main.609df290.css.map",
+    "main.3776b496.js.map": "/my-react-app/static/js/main.3776b496.js.map",
     "453.6bd4553c.chunk.js.map": "/my-react-app/static/js/453.6bd4553c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a328a35c.css",
-    "static/js/main.919c1479.js"
+    "static/css/main.609df290.css",
+    "static/js/main.3776b496.js"
   ]
 }
