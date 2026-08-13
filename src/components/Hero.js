@@ -31,7 +31,7 @@ function Hero() {
       <div className="block-subscription">
         {/* Добавили onClick для вызова плавной прокрутки */}
         <button className="subscription" onClick={scrollToPricing}>
-          Купить абонемент <img src={arrow} className="arrow" alt="arrow" />
+          Aбонементы <img src={arrow} className="arrow" alt="arrow" />
         </button>
 
         <a href="https://t.me/+NMl8Zh9GTHZiYTRi" className="subscription2">

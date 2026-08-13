@@ -79,7 +79,7 @@ export default function SubscriptionCard({ duration, price, pricePerMonth, price
         )}
       </ul>
 
-      <button className="sub-card-btn">КУПИТЬ</button>
+      {/* <button className="sub-card-btn">КУПИТЬ</button> */}
     </div>
   );
 }
