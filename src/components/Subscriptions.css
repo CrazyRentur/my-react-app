@@ -186,9 +186,9 @@
 /* Стиль для маленькой пометки под категориями */
 .filter-panel-note {
   margin: 25px 0 0 0 !important; /* Отступ сверху от последней кнопки */
-  font-size: 11px;   /* Маленький аккуратный шрифт */
+  font-size: 18px;   /* Маленький аккуратный шрифт */
   line-height: 1.4 !important;
-  color: #88888d !important;     /* Приглушенный серый цвет текста */
+  color: #222222 !important;     /* Приглушенный серый цвет текста */
   font-weight: 500 !important;
   text-align: left !important;
 }
