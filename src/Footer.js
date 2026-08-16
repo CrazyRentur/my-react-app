@@ -76,16 +76,7 @@ export default function Footer() {
             </li>
           </ul>
 
-          {/* ДОБАВЛЕНО: Блок юридической информации */}
-          <div className="footer-legal-info">
-            <h4 className="legal-title">ЮР. ИНФОРМАЦИЯ</h4>
-            <p className="legal-text">
-              ИП МАМЕДОВ РАШАД АГАВЕРДИ ОГЛЫ.<br />
-              УНП 490626078<br />
-              Юр. адрес: Беларусь, г. Гомель,<br />
-              ул. Мазурова 87, 246006
-            </p>
-          </div>
+
         </div>
 
         {/* 2. БЛОК КАРТЫ */}
@@ -101,6 +92,17 @@ export default function Footer() {
             className="footer-building-photo" 
           />
         </div>
+
+                  {/* ДОБАВЛЕНО: Блок юридической информации */}
+          <div className="footer-legal-info">
+            <h4 className="legal-title">ЮР. ИНФОРМАЦИЯ</h4>
+            <p className="legal-text">
+              ИП МАМЕДОВ РАШАД АГАВЕРДИ ОГЛЫ.<br />
+              УНП 490626078<br />
+              Юр. адрес: Беларусь, г. Гомель,<br />
+              ул. Мазурова 87, 246006
+            </p>
+          </div>
 
       </div>
     </footer> 

@@ -16,6 +16,7 @@ import Advantages from './components/Advantages';
 import About from './components/About';
 import GymGallery from './components/GymGallery';
 import Subscriptions from './components/Subscriptions';
+import Rules from './components/Rules';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
       <GymGallery />
       <Subscriptions />
       <Services />
+      <Rules />
       <Footer />
     </div>
   );

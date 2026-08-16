@@ -1,0 +1,60 @@
+/* Внешняя обертка для центрирования блока */
+.rules-wrapper {
+  display: flex !important;
+  justify-content: center !important; 
+  align-items: center !important;
+  width: 100% !important;
+  margin: 20px 0 !important; 
+}
+
+/* Контейнер самой ссылки */
+.legal-link-container {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important; 
+  padding: 12px 18px !important;
+  background-color: #f8f9fa !important; 
+  border-radius: 8px !important;
+  border: 1px solid #e9ecef !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important; 
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* Эффект при наведении на блок */
+.legal-link-container:hover {
+  background-color: #f1f3f5 !important;
+  border-color: #dee2e6 !important;
+  cursor: pointer !important;
+}
+
+/* Стилизация иконки */
+.legal-icon {
+  color: #495057 !important; 
+  flex-shrink: 0 !important;
+  transition: color 0.2s ease-in-out !important;
+}
+
+/* Стилизация ссылки (убираем синеву и линию принудительно) */
+.legal-link, 
+.legal-link:visited, 
+.legal-link:active, 
+.legal-link:focus {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  color: #212529 !important; /* Нейтральный темный цвет */
+  text-decoration: none !important; /* Убирает линию снизу */
+  border-bottom: none !important; /* На случай, если линия сделана через border */
+  outline: none !important;
+}
+
+/* Изменение цвета при наведении без подчеркивания */
+.legal-link-container:hover .legal-link {
+  color: #000000 !important; 
+  text-decoration: none !important; /* Запрещает появление линии при наведении */
+  border-bottom: none !important;
+}
+
+.legal-link-container:hover .legal-icon {
+  color: #212529 !important; 
+}
